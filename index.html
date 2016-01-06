@@ -1,45 +1,72 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Html5 by hejia12</title>
+    <title>贺嘉定制版-来自喵星的你</title>
+    <link rel="icon" type="image/GIF" href="res/favicon.ico"/>
+    <meta name="viewport" content="width=321, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="full-screen" content="yes"/>
+    <meta name="screen-orientation" content="portrait"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <style>
+        canvas {
+            image-rendering: optimizeSpeed;
+        image-rendering: -moz-crisp-edges;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: -o-crisp-edges;
+        image-rendering: optimize-contrast;
+        -ms-interpolation-mode: nearest-neighbor;
+        }
+    </style>
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-light.css">
-    <meta name="viewport" content="width=device-width">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Html5</h1>
-        <p>Html5 game </p>
+</head>
+<body>	 
+    <canvas id="gameCanvas" width="320" height="500"></canvas>
+    <script type="text/javascript" src="WeixinApi.js"></script>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?91f4361e83cf34ffe3b6dd0471ee205a";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
 
-        <p class="view"><a href="https://github.com/hejia12/html5">View the Project on GitHub <small>hejia12/html5</small></a></p>
+        window.wxData = {
+            "appId": "", // 服务号可以填写appId
+            "imgUrl":'http://app9.download.anzhuoshangdian.com/cat/icon.png',
+            "link":'http://app9.download.anzhuoshangdian.com/cat/',
+            "desc":"最近微信刷屏的游戏，喵的太贱了，快来感受下吧",
+            "title":"最近微信刷屏的游戏，喵的太贱了，快来感受下吧"
+        };
+        window.wxFriend = {
+            "appId": "", // 服务号可以填写appId
+            "imgUrl":'http://app9.download.anzhuoshangdian.com/cat/icon.png',
+            "link":'http://app9.download.anzhuoshangdian.com/cat/',
+            "desc":'最近微信刷屏的游戏，喵的太贱了，快来感受下吧',
+            "title":"最近微信刷屏的游戏《来自喵星的你》，喵的太贱了，快来感受下吧"
+        };
+        WeixinApi.ready(function(Api) {
+            var wxCallbacks = {
+                ready : function() {
+                },
+                cancel : function(resp) {
+                },
+                fail : function(resp) {
+                },
+                confirm : function(resp) {
+                },
+                all : function(resp) {
+                }
+            };
+            Api.shareToFriend(wxFriend, wxCallbacks);
+            Api.shareToTimeline(wxData, wxCallbacks);
+            Api.shareToWeibo(wxData, wxCallbacks);
+        });
+    </script>
+    <script type="text/javascript" src="cocos2d-html5.js"></script>
+    <script type="text/javascript"  src="catnorris.js"></script>
 
-
-        <ul>
-          <li><a href="https://github.com/hejia12/html5/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/hejia12/html5/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/hejia12/html5">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h3>
-<a id="welcome-to-hejias-page" class="anchor" href="#welcome-to-hejias-page" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to Hejia's page.</h3>
-
-<p>Hejia,Tencent cloud evangelist,forbes columnist
-<a href="http://www.qcloud.com/">http://www.qcloud.com/</a></p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/hejia12">hejia12</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
-  </body>
+</body>
 </html>
